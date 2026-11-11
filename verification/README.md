@@ -24,3 +24,7 @@ The command output is retained in `lean-version.txt`, `build.txt`, `statement.tx
 Execution used a Windows x86-64 installation of the pinned Lean toolchain. The clean checkout reused checked upstream dependency sources and their compiled cache, with a successful `lake exe cache get`. Its own proof targets were rebuilt from source. The fresh kernel check supplies an additional replay of the proof environment.
 
 The included GitHub Actions workflow is prepared for subsequent hosted execution. These records describe actual local execution. External mathematical review, an independent checker implementation, public priority evidence, and prize-organizer acceptance remain separate review matters.
+
+## Final pre-submission verification
+
+The complete checks were repeated successfully in another clean checkout of the same proof commit before publication. [Final results](final-report.json) record the actual completion time and source hashes. [Package checks](final-package-check.json) cover metadata, statement links, the paper, attribution, catalog scope, and the privacy scan across the entire prepared history. The command output is retained in the corresponding `final-*.txt` files.

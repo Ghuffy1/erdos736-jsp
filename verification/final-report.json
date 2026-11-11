@@ -1,0 +1,79 @@
+{
+  "checked_at_utc": "2026-11-11T05:32:15.960946+00:00",
+  "checked_commit": "9a07b93bc7466a489650c3951e0642689c5d8bc5",
+  "toolchain": "leanprover/lean4:v4.34.0",
+  "lean_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "source_sha256": {
+    "Erdos736.lean": "e942a8556ef95ffcef5f318e7a2e19fc4386288c5fdcc7d17d6a20871996dbe5",
+    "StatementCheck.lean": "7b96ca4bf57e9e8f011ab46674fc15f2c6c794e96091ce74eb4463ce34460eb5",
+    "Audit.lean": "3a12b6ff05350a91245af2b7f271a54aed0ce818eaa3045fe07abe6b65579258"
+  },
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "commit": "5ed2965256430c3649e86755f9576b54eca72435"
+    },
+    {
+      "name": "plausible",
+      "commit": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+    },
+    {
+      "name": "LeanSearchClient",
+      "commit": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+    },
+    {
+      "name": "importGraph",
+      "commit": "e928b72544873815af278d38681b31c0293588e3"
+    },
+    {
+      "name": "proofwidgets",
+      "commit": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+    },
+    {
+      "name": "aesop",
+      "commit": "355695d523e41d0554926416cba2a2b3544fbbc9"
+    },
+    {
+      "name": "Qq",
+      "commit": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+    },
+    {
+      "name": "batteries",
+      "commit": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+    },
+    {
+      "name": "Cli",
+      "commit": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+    }
+  ],
+  "targets": [
+    "Erdos736.erdos_736",
+    "Erdos736.full_solution",
+    "StatementCheck.original_assertion_false"
+  ],
+  "axioms": {
+    "Erdos736.erdos_736": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Erdos736.full_solution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "StatementCheck.original_assertion_false": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "source_scan": "passed",
+  "build": "passed",
+  "statement_check": "passed",
+  "axiom_audit": "passed",
+  "fresh_kernel_replay": "passed",
+  "statement_kernel_replay": "passed",
+  "dependency_mode": "pinned dependency checkouts and available upstream build cache",
+  "external_prize_review": "pending"
+}

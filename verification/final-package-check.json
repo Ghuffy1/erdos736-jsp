@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "proof_commit": "9a07b93bc7466a489650c3951e0642689c5d8bc5",
+  "evidence_commit": "d9a73d92cb3a2c3cc76a6b02f3e380e11611e239",
+  "history_text_versions_scanned": 52,
+  "commit_pinned_links": 18,
+  "paper": "unchanged and verified",
+  "metadata": "passed",
+  "catalog_scope": "only four authorized fields",
+  "cff_schema": "passed",
+  "private_history_scan": "passed"
+}
