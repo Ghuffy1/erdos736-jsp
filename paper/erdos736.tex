@@ -1,0 +1,409 @@
+\documentclass[11pt,leqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,textwidth=6.2in,textheight=9.0in,centering]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={A ZFC Counterexample to Taylor's Conjecture on Finite Subgraphs},pdfauthor={Will Howe, Grant Huffman, Jensen Kohlmeyer, Liam Kruer},pdfsubject={Infinite graphs and chromatic number}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\N}{\mathbb N}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\cc}{\mathfrak c}
+\newcommand{\Age}{\operatorname{Age}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\seq}[1]{\langle #1\rangle}
+\newcommand{\cat}{\mathbin{{}^\frown}}
+\newcommand{\restr}{\mathbin{\upharpoonright}}
+\newcommand{\sub}{\subseteq}
+\setlength{\emergencystretch}{1.5em}
+\title[Taylor's conjecture on finite subgraphs]{A ZFC counterexample to Taylor's conjecture on finite subgraphs}
+\author[W. Howe]{Will Howe}
+\author[G. Huffman]{Grant Huffman}
+\author[J. Kohlmeyer]{Jensen Kohlmeyer}
+\author[L. Kruer]{Liam Kruer}
+\date{November 10, 2026}
+\subjclass[2020]{05C63, 05C15, 03E05}
+\keywords{infinite graphs, chromatic number, finite subgraphs, countable closure, compactness}
+\thanks{\textit{E-mail addresses.} \href{mailto:howew@purdue.edu}{\texttt{howew@purdue.edu}} (W. Howe), \href{mailto:huffma97@purdue.edu}{\texttt{huffma97@purdue.edu}} (G. Huffman), \href{mailto:jenwin@purdue.edu}{\texttt{jenwin@purdue.edu}} (J. Kohlmeyer), \href{mailto:kruerl@purdue.edu}{\texttt{kruerl@purdue.edu}} (L. Kruer).}
+\begin{document}
+\begin{abstract}
+We construct, in ZFC, a graph $G$ of chromatic number $\aleph_1$ such that every graph whose finite ordinary subgraphs embed into $G$ has chromatic number at most $2^{\aleph_0}$. Taking the target chromatic number to be $(2^{\aleph_0})^+$ gives a negative answer to Taylor's conjecture on finite subgraphs. The construction uses hereditarily countable vertex data, finite coordinate inequalities, and a countable-closure reflection argument. A compactness argument transfers the resulting finite coloring properties to the entire finite age of $G$.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+All graphs in this paper are simple and undirected. An embedding of a graph $F$ into a graph $G$ is an injective map on vertices that preserves adjacency. Write $\Age(G)$ for the class of finite graphs that embed into $G$, up to isomorphism. The chromatic number $\chi(G)$ is the least cardinality of a set admitting a proper coloring of $G$.
+
+A conjecture of Walter Taylor, recorded by Erd\H{o}s \cite{erdos}, asks whether every graph $G$ with $\chi(G)=\aleph_1$ has the following property. For every cardinal $\kappa$, there is a graph $H$ with
+\begin{equation}\label{eq:taylor}
+\chi(H)=\kappa
+\qquad\text{and}\qquad
+\Age(H)\sub\Age(G).
+\end{equation}
+Komj\'ath and Shelah \cite{komjath-shelah} proved that a negative answer is consistent with ZFC. The theorem below gives a counterexample in ZFC itself. Throughout, put $\cc=2^{\aleph_0}$.
+
+\begin{theorem}\label{thm:main}
+There is a graph $G$ with $\chi(G)=\aleph_1$ such that, for every graph $H$,
+\begin{equation}\label{eq:main-bound}
+\Age(H)\sub\Age(G)\quad\Longrightarrow\quad\chi(H)\le\cc.
+\end{equation}
+Consequently, \eqref{eq:taylor} fails for this $G$ and $\kappa=\cc^+$.
+\end{theorem}
+
+The host construction is based on Lambie-Hanson's work on the growth of chromatic numbers of finite subgraphs \cite{lh-paper}, in particular his construction using hereditarily countable structures \cite{lh-talk}. We give the construction and all the properties needed for \eqref{eq:main-bound}. The argument uses one chosen predecessor at each natural-number label and increasing bounds on the lengths of odd closed walks in the label tails.
+
+We use $\N=\{0,1,2,\ldots\}$. A closed walk of length $\ell$ is a sequence $v_0,v_1,\ldots,v_\ell=v_0$ with consecutive vertices adjacent. Vertices may repeat. A coloring makes a walk monochromatic when all its vertices receive the same color. We work throughout in ZFC.
+
+\section{A compactness criterion for the finite age}
+
+\begin{proposition}\label{prop:compactness}
+Suppose that, for each $j\in\N$, a graph $G$ admits a coloring $a_j$ into a finite nonempty set $A_j$ such that no odd closed walk of length at most $2j+3$ is monochromatic under $a_j$. If $\Age(H)\sub\Age(G)$, then $\chi(H)\le\cc$.
+\end{proposition}
+
+\begin{proof}
+Fix $j$. Give $A_j$ the discrete topology and consider the compact space
+\[
+X_j=A_j^{V(H)}.
+\]
+For every odd closed walk $Q$ of $H$ of length at most $2j+3$, let $U_Q$ be the set of colorings in $X_j$ that make $Q$ nonmonochromatic. Each $U_Q$ is clopen because membership depends on finitely many coordinates.
+
+A finite collection of these conditions involves a finite set $S\sub V(H)$. The finite graph $H[S]$ embeds into $G$. Pulling back $a_j$ along such an embedding colors $S$ and satisfies every condition in the collection. Indeed, an adjacency-preserving map sends each of the specified closed walks to a closed walk of the same length. Extend the coloring arbitrarily to the other vertices of $H$. Thus the sets $U_Q$ have the finite intersection property. Compactness gives a coloring
+\[
+b_j\colon V(H)\longrightarrow A_j
+\]
+for which no odd closed walk of length at most $2j+3$ is monochromatic. This is the usual finite-color compactness principle underlying the de Bruijn--Erd\H{o}s theorem \cite{debruijn-erdos}.
+
+Choose such a $b_j$ for every $j$ and set
+\[
+b(v)=\seq{b_j(v):j\in\N}.
+\]
+Every fiber of $b$ induces a graph with no odd closed walk. Otherwise a walk of odd length $\ell$ in a fiber would be monochromatic under $b_j$ for any $j$ with $\ell\le2j+3$.
+
+A graph with no odd closed walk is bipartite. To see this, choose a root in each connected component and color a vertex by the parity of a path from the root. Two such paths have the same parity, since concatenating one with the reverse of the other gives a closed walk, which must have even length. Adjacent vertices have opposite parity. Choose a binary coloring on each fiber of $b$, and denote the resulting bit at $v$ by $\varepsilon(v)$.
+
+The map $v\mapsto(b(v),\varepsilon(v))$ is a proper coloring of $H$. Its color set has cardinality at most $\cc$. In fact, each finite $A_j$ embeds into $\N$, so
+\[
+\left|\left(\prod_{j\in\N}A_j\right)\times\{0,1\}\right|
+\le |\N^{\N}\times\{0,1\}|=\cc.
+\]
+\end{proof}
+
+\section{A finite coordinate obstruction}
+For a positive integer $s$, define
+\begin{equation}\label{eq:width}
+B_s=(2s+1)(s+1),\qquad n_s=2B_s+2s+3=4(s+1)^2+1.
+\end{equation}
+If $a$ and $b$ are strictly increasing $n_s$-tuples of ordinals, write $a\mathrel{R_s}b$ when, for every integer $i$ with $s+1\le i\le n_s-s-2$,
+\begin{equation}\label{eq:coordinate}
+a(i)<b(i-s)
+\qquad\text{and}\qquad
+b(i)<a(i+s+1).
+\end{equation}
+These are coordinate inequalities supplied by the usual Specker disjoint types. The proof below uses the inequalities directly.
+
+\begin{lemma}\label{lem:odd-walk}
+Suppose that $a_0,a_1,\ldots,a_\ell=a_0$ are strictly increasing $n_s$-tuples of ordinals and, for every $t<\ell$, either $a_t\mathrel{R_s}a_{t+1}$ or $a_{t+1}\mathrel{R_s}a_t$. If $\ell$ is odd, then $\ell>2s+1$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $\ell\le2s+1$. Choose one of the two available orientations for each step. Reversing the walk if necessary, arrange that the number $u$ of forward steps exceeds the number $d$ of reverse steps. This is possible because $u+d=\ell$ is odd. In particular, $d\le s$.
+
+Start at index $i_0=B_s+s+1$. At a forward step decrease the index by $s$, and at a reverse step increase it by $s+1$. Thus
+\[
+i_{t+1}=\begin{cases}
+i_t-s,&a_t\mathrel{R_s}a_{t+1}\text{ is the chosen orientation},\\
+i_t+s+1,&a_{t+1}\mathrel{R_s}a_t\text{ is the chosen orientation}.
+\end{cases}
+\]
+At most $\ell$ changes occur, each of absolute value at most $s+1$. Since $\ell(s+1)\le B_s$, every index lies in
+\[
+[s+1,\,2B_s+s+1]=[s+1,\,n_s-s-2].
+\]
+The corresponding inequality in \eqref{eq:coordinate} therefore applies at every step and gives
+\[
+a_0(i_0)<a_1(i_1)<\cdots<a_\ell(i_\ell).
+\]
+On the other hand,
+\[
+i_\ell-i_0=-su+(s+1)d=-s(u-d)+d\le-s+d\le0.
+\]
+As $a_\ell=a_0$ is increasing, $a_\ell(i_\ell)\le a_0(i_0)$, a contradiction.
+\end{proof}
+
+For later use put
+\begin{equation}\label{eq:blocks}
+s_j=j+1,\qquad n_j=n_{s_j},\qquad
+b_0=0,\qquad b_{j+1}=b_j+n_j.
+\end{equation}
+The $j$th block of an increasing sequence $C\colon\N\to\omega_1$ is the tuple
+\[
+C[j]=\seq{C(b_j+i):0\le i<n_j}.
+\]
+
+\section{The host graph}
+
+\subsection{Vertex data}
+Let $\HH=H(\aleph_1)$ be the set of hereditarily countable sets. We use the von Neumann representation of ordinals and fix the Kuratowski encoding of ordered pairs. A vertex is a quadruple
+\begin{equation}\label{eq:vertex}
+v=\seq{M_v,\delta_v,h_v,C_v}
+\end{equation}
+with the following properties.
+\begin{enumerate}
+\item $M_v\in\HH$ is transitive and $M_v\cap\omega_1=\delta_v$, where $\delta_v$ is a nonzero limit ordinal.
+\item $h_v\colon M_v\to\N$ is a function.
+\item $C_v\colon\N\to\delta_v$ is strictly increasing and cofinal in $\delta_v$.
+\end{enumerate}
+Let $V$ be the set of all such vertices. Each vertex is identified with the code
+\[
+\seq{M_v,\seq{\delta_v,\seq{h_v,C_v}}},
+\]
+where functions are represented by their graphs. This code is hereditarily countable, and distinct vertex data have distinct codes. We consequently regard $V$ as a subset of $\HH$.
+
+Every member of $\HH$ has countable rank. This follows by well-founded induction from
+\[
+\rk(x)=\sup\{\rk(y)+1:y\in x\}
+\]
+and the fact that a countable supremum of countable ordinals is countable. In particular, $\HH$ is a set, contained in the cumulative-hierarchy level $V_{\omega_1}$. The coding also gives
+\begin{equation}\label{eq:rank}
+\rk(M_v)<\rk(v)<\omega_1.
+\end{equation}
+For vertices $u,v$, write $u\prec v$ when $u\in M_v$. Then
+\begin{equation}\label{eq:precedes}
+u\prec v\quad\Longrightarrow\quad \rk(u)<\rk(M_v)<\rk(v).
+\end{equation}
+
+\subsection{Edges and their layers}
+For $v\in V$ and $k\in\N$, a vertex $u$ is \emph{eligible at $(v,k)$} if
+\begin{equation}\label{eq:eligible}
+u\in M_v,\qquad h_v(u)=k,\qquad
+C_u[j]\mathrel{R_{s_j}}C_v[j]\quad(0\le j\le k).
+\end{equation}
+When an eligible vertex exists, choose one and denote it by $p_k(v)$. Put
+\[
+E_k=\bigl\{\{v,p_k(v)\}:v\in V\text{ and }p_k(v)\text{ is defined}\bigr\},
+\qquad E=\bigcup_{k\in\N}E_k,
+\]
+and let $G=(V,E)$. Formula \eqref{eq:precedes} excludes loops and shows that rank is a proper coloring of $G$. Hence
+\begin{equation}\label{eq:upper}
+\chi(G)\le\aleph_1.
+\end{equation}
+
+\begin{lemma}\label{lem:layers}
+For every $k$, the graph $(V,E_k)$ is a forest. For every $j$, the graph
+\[
+G_{\ge j}=\left(V,\bigcup_{k\ge j}E_k\right)
+\]
+has no odd closed walk of length at most $2j+3$.
+\end{lemma}
+
+\begin{proof}
+A finite cycle in $(V,E_k)$ would have a vertex $v$ of maximum rank. Its two neighbors on the cycle have smaller rank, so each must be $p_k(v)$. This contradicts their distinctness. Thus $(V,E_k)$ is a forest and admits a proper binary coloring.
+
+For the second assertion, map a vertex $v$ to the increasing tuple $C_v[j]$. An edge in $G_{\ge j}$ has a label $k\ge j$. Its two image tuples satisfy $R_{s_j}$ in one of the two orientations by \eqref{eq:eligible}. An odd closed walk of length at most $2j+3=2s_j+1$ would therefore contradict Lemma~\ref{lem:odd-walk}. The images of its vertices may repeat, which is allowed in that lemma.
+\end{proof}
+
+Choose a binary coloring $c_k$ of $(V,E_k)$ for each $k$. For $j\in\N$, let
+\begin{equation}\label{eq:finite-coloring}
+a_j(v)=\seq{c_0(v),\ldots,c_{j-1}(v)}\in\{0,1\}^{j}.
+\end{equation}
+Every edge whose endpoints have the same $a_j$-value belongs to the tail $G_{\ge j}$. Lemma~\ref{lem:layers} implies that no odd closed walk of length at most $2j+3$ is monochromatic under $a_j$.
+
+\section{Countable closures and reflection}
+We prove that $G$ admits no coloring into $\N$. The countable closures below supply the reflection argument for the construction.
+
+\begin{lemma}\label{lem:closure}
+Let $X$ be a set and let $\mathcal F$ be a countable collection of functions, each of the form $X^r\to X$ for some finite $r$. Every countable subset of $X$ is contained in a countable subset closed under every member of $\mathcal F$.
+\end{lemma}
+
+\begin{proof}
+Starting with the given countable set $A_0$, let $A_{m+1}$ contain $A_m$ and all values of functions in $\mathcal F$ on tuples from $A_m$. Each $A_m$ is countable. The union $A=\bigcup_{m<\omega}A_m$ is countable and closed, since every finite tuple from $A$ is contained in some $A_m$.
+\end{proof}
+
+Fix an arbitrary function $f\colon V\to\N$. The functions used for closure will depend on $f$. For a finite sequence $\bar\alpha$ of countable ordinals and $k,r\in\N$, define predicates $P_r^k(\bar\alpha)$ recursively. The predicate $P_0^k(\bar\alpha)$ means that some $v\in V$ satisfies
+\[
+f(v)=k\qquad\text{and}\qquad
+C_v(i)=\alpha_i\quad(i<|\bar\alpha|).
+\]
+For $r\ge0$, let
+\begin{equation}\label{eq:prefix-recursion}
+P_{r+1}^k(\bar\alpha)
+\quad\Longleftrightarrow\quad
+\forall\beta<\omega_1\ \exists\gamma>\beta\
+P_r^k(\bar\alpha\cat\seq{\gamma}).
+\end{equation}
+Here and below the quantified ordinals are less than $\omega_1$.
+
+For every $k,r$ and finite $\bar\alpha$, choose the following values, using zero as a default whenever the specified choice is unavailable.
+\begin{enumerate}
+\item If $P_{r+1}^k(\bar\alpha)$ fails, choose a bound $B_{k,r}(\bar\alpha)<\omega_1$ such that
+\begin{equation}\label{eq:bound}
+\gamma>B_{k,r}(\bar\alpha)
+\quad\Longrightarrow\quad
+\neg P_r^k(\bar\alpha\cat\seq{\gamma}).
+\end{equation}
+\item Whenever a witness exists above $\beta$, choose $W_{k,r}(\bar\alpha,\beta)>\beta$ satisfying
+\[
+P_r^k\bigl(\bar\alpha\cat\seq{W_{k,r}(\bar\alpha,\beta)}\bigr).
+\]
+\item If $P_0^k(\bar\alpha)$ holds, choose a vertex $S_k(\bar\alpha)$ witnessing it.
+\end{enumerate}
+The vertex in the third item is represented by its code in $\HH$.
+
+These choices yield countably many finitary functions on $\HH$. For precision, for each possible input length take the corresponding function, and decode an arbitrary input $x\in\HH$ as the countable ordinal $\rk(x)$. For an ordinal input $\alpha$, this decoding returns $\alpha$. Ordinal outputs and vertex codes belong to $\HH$.
+
+Include also the following functions in the closure family. For each $x\in\HH$, fix a sequence $e_n(x)$ whose range contains every member of $x$ and whose values lie in $x\cup\{\varnothing\}$. Include all functions $e_n$, the constant $\varnothing$, and the function
+\[
+x\longmapsto\rk(x)+1,
+\]
+with its ordinal value regarded as an element of $\HH$.
+
+\begin{lemma}\label{lem:models}
+There are increasing countable subsets $M_i\sub\HH$ for $i<\omega$, closed under all the chosen functions, such that, on writing
+\[
+\delta_i=M_i\cap\omega_1,
+\]
+each $M_i$ is transitive, each $\delta_i$ is a nonzero countable limit ordinal, and
+\begin{equation}\label{eq:height-chain}
+\delta_i\in M_{i+1},\qquad \delta_i<\delta_{i+1}.
+\end{equation}
+The union $M_\infty=\bigcup_iM_i$ is closed and transitive, belongs to $\HH$, and satisfies
+\[
+M_\infty\cap\omega_1=\delta_\infty=\sup_i\delta_i.
+\]
+\end{lemma}
+
+\begin{proof}
+Apply Lemma~\ref{lem:closure} to obtain $M_0$ containing $\varnothing$. Closure under the functions $e_n$ makes $M_0$ transitive. Its ordinals form an initial segment of $\omega_1$. Closure under $x\mapsto\rk(x)+1$ makes that segment closed under successors, and it contains all finite ordinals. Since $M_0$ is countable, its ordinal part is a nonzero countable limit ordinal $\delta_0$.
+
+Having constructed $M_i$, apply Lemma~\ref{lem:closure} to $M_i\cup\{\delta_i\}$ to obtain $M_{i+1}$. The same argument gives transitivity and the required properties of its ordinal part. Inclusion of $\delta_i$ gives \eqref{eq:height-chain}.
+
+The union is countable and transitive. Every finite tuple from it lies in one stage, so it is closed under the chosen functions. A countable transitive set of hereditarily countable sets is hereditarily countable. Its ordinal part is the union of the $\delta_i$, which is their supremum.
+\end{proof}
+
+Define $C_\tau(i)=\delta_i$, and define $h_\tau$ on $M_\infty$ by
+\begin{equation}\label{eq:memory}
+h_\tau(x)=\begin{cases}
+f(v),&x\text{ is the code of a vertex }v\in V,\\
+0,&\text{otherwise}.
+\end{cases}
+\end{equation}
+Uniqueness of the vertex code makes this definition unambiguous. Lemma~\ref{lem:models} shows that
+\begin{equation}\label{eq:diagonal}
+\tau=\seq{M_\infty,\delta_\infty,h_\tau,C_\tau}
+\end{equation}
+is a vertex of $G$. Put $k=f(\tau)$.
+
+\begin{lemma}\label{lem:reflection}
+For every $r,i\in\N$,
+\begin{equation}\label{eq:reflection}
+P_r^k\bigl(\seq{\delta_0,\ldots,\delta_{i-1}}\bigr)
+\end{equation}
+holds. In particular, $P_r^k(\varnothing)$ holds for every $r$.
+\end{lemma}
+
+\begin{proof}
+Induct on $r$, simultaneously for all $i$. For $r=0$, the vertex $\tau$ witnesses \eqref{eq:reflection}.
+
+Suppose the statement holds for $r$, and put $\bar\delta_i=\seq{\delta_0,\ldots,\delta_{i-1}}$. The induction hypothesis at $i+1$ gives
+\[
+P_r^k(\bar\delta_i\cat\seq{\delta_i}).
+\]
+If $P_{r+1}^k(\bar\delta_i)$ failed, the chosen bound $B_{k,r}(\bar\delta_i)$ would belong to $M_i$. Indeed, every entry $\delta_j$ with $j<i$ belongs to $M_i$ by \eqref{eq:height-chain}, and $M_i$ is closed under the bound function. As the bound is an ordinal, it is less than $\delta_i$. Equation~\eqref{eq:bound} would then exclude the displayed instance of $P_r^k$, a contradiction.
+\end{proof}
+
+\begin{lemma}\label{lem:gaps}
+Let $N\in\N$, and let $(g_t)_{t<N}$ be a nondecreasing sequence of natural numbers. There is a vertex $v\in M_\infty\cap V$ with $f(v)=k$ such that, for every $t<N$,
+\begin{equation}\label{eq:gaps}
+C_v(t)<\delta_{g_t},
+\qquad
+ g_t>0\ \Longrightarrow\ \delta_{g_t-1}<C_v(t).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Starting with $P_N^k(\varnothing)$, construct countable ordinals $\gamma_0,\ldots,\gamma_{N-1}$. At stage $t$, retain
+\[
+P_{N-t}^k\bigl(\seq{\gamma_0,\ldots,\gamma_{t-1}}\bigr).
+\]
+Set $\beta_t=0$ if $g_t=0$, and $\beta_t=\delta_{g_t-1}$ otherwise. The ordinal $\beta_t$ belongs to $M_{g_t}$. Every previously chosen $\gamma_j$ belongs to $M_{g_j}\sub M_{g_t}$. Closure under the witness function permits the choice
+\[
+\gamma_t=W_{k,N-t-1}\bigl(\seq{\gamma_0,\ldots,\gamma_{t-1}},\beta_t\bigr)
+\in M_{g_t}.
+\]
+It satisfies $\gamma_t>\beta_t$ and preserves the displayed predicate with $t+1$ in place of $t$. Since $\gamma_t$ is an ordinal in $M_{g_t}$, it is less than $\delta_{g_t}$.
+
+At the end, $P_0^k(\seq{\gamma_0,\ldots,\gamma_{N-1}})$ holds. Closure of $M_\infty$ under the vertex-selection function gives a witnessing vertex $v\in M_\infty$. Its first $N$ ladder entries are the $\gamma_t$, so it satisfies \eqref{eq:gaps}.
+\end{proof}
+
+\section{The chromatic number and the conclusion}
+
+\begin{proposition}\label{prop:uncountable}
+The graph $G$ has chromatic number $\aleph_1$.
+\end{proposition}
+
+\begin{proof}
+The upper bound is \eqref{eq:upper}. Suppose that $f\colon V\to\N$ is a proper coloring, and construct the sets $M_i$, the vertex $\tau$, and the color $k=f(\tau)$ as above. Set $N=b_{k+1}$. For $0\le j\le k$ and $0\le i<n_j$, prescribe
+\begin{equation}\label{eq:gap-pattern}
+g_{b_j+i}=b_j+\max\{i-s_j,0\}.
+\end{equation}
+This sequence is nondecreasing within every block. Its values in the $j$th block are at least $b_j$ and strictly less than $b_{j+1}$, so it is nondecreasing across the blocks as well.
+
+Apply Lemma~\ref{lem:gaps} to obtain $v\in M_\infty\cap V$ of color $k$. Fix $j\le k$ and $s_j+1\le i\le n_j-s_j-2$. The upper inequality in \eqref{eq:gaps} and \eqref{eq:gap-pattern} give
+\[
+C_v(b_j+i)<\delta_{b_j+i-s_j}=C_\tau(b_j+i-s_j).
+\]
+Apply the lower inequality in \eqref{eq:gaps} at the coordinate $b_j+i+s_j+1$. Its prescribed gap index is $b_j+i+1>0$, so
+\[
+C_\tau(b_j+i)=\delta_{b_j+i}<C_v(b_j+i+s_j+1).
+\]
+Thus $C_v[j]\mathrel{R_{s_j}}C_\tau[j]$ for every $j\le k$. Since $v\in M_\infty=M_\tau$ and $h_\tau(v)=f(v)=k$, the vertex $v$ is eligible at $(\tau,k)$.
+
+The chosen predecessor $u=p_k(\tau)$ therefore exists. Its eligibility gives $h_\tau(u)=k$, and \eqref{eq:memory} gives $f(u)=k=f(\tau)$. But $\{u,\tau\}\in E_k$, contradicting properness of $f$. Hence $G$ has no countable coloring, and \eqref{eq:upper} yields $\chi(G)=\aleph_1$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Proposition~\ref{prop:uncountable} gives $\chi(G)=\aleph_1$. The finite colorings in \eqref{eq:finite-coloring} satisfy the hypotheses of Proposition~\ref{prop:compactness}, so every $H$ with $\Age(H)\sub\Age(G)$ has $\chi(H)\le\cc$. Such an $H$ cannot have chromatic number $\cc^+$. This proves both assertions.
+\end{proof}
+
+\subsection*{Acknowledgment}
+The authors acknowledge assistance from OpenAI's ChatGPT in the development and checking of the argument and in preparing the exposition.
+
+\begin{thebibliography}{9}
+\bibitem{debruijn-erdos}
+N.~G. de Bruijn and P.~Erd\H{o}s,
+\emph{A colour problem for infinite graphs and a problem in the theory of relations},
+Nederl. Akad. Wetensch. Proc. Ser. A \textbf{54} = Indag. Math. \textbf{13} (1951), 369--373.
+
+\bibitem{erdos}
+P.~Erd\H{o}s,
+\emph{On the combinatorial problems which I would most like to see solved},
+Combinatorica \textbf{1} (1981), no.~1, 25--42.
+\href{https://doi.org/10.1007/BF02579174}{doi:10.1007/BF02579174}.
+
+\bibitem{komjath-shelah}
+P.~Komj\'ath and S.~Shelah,
+\emph{Finite subgraphs of uncountably chromatic graphs},
+J. Graph Theory \textbf{49} (2005), no.~1, 28--38.
+\href{https://doi.org/10.1002/jgt.20060}{doi:10.1002/jgt.20060}.
+
+\bibitem{lh-paper}
+C.~Lambie-Hanson,
+\emph{On the growth rate of chromatic numbers of finite subgraphs},
+Adv. Math. \textbf{369} (2020), article 107176.
+\href{https://doi.org/10.1016/j.aim.2020.107176}{doi:10.1016/j.aim.2020.107176}.
+
+\bibitem{lh-talk}
+C.~Lambie-Hanson,
+\emph{Finite subgraphs of uncountable graphs},
+CMU Mathematical Logic Seminar, April 28, 2020,
+\href{https://speakerdeck.com/clambiehanson/finite-subgraphs-of-uncountable-graphs}{seminar slides}, 53--107.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,29 @@
+name: Verify the full proof
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the selected revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain and upstream cache
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Verify source, targets, axioms, and kernel replay
+        run: python3 scripts/verify.py

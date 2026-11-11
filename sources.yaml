@@ -1,0 +1,50 @@
+schema_version: 1
+problem:
+  erdos_number: 736
+  jsp_id: JSP-000604
+  title: "Taylor's conjecture on finite subgraphs"
+  source: "https://www.erdosproblems.com/736"
+repository:
+  intended_owner: Ghuffy1
+  intended_name: erdos736-jsp
+  intended_branch: main
+  submission_lead: Ghuffy1
+contributors:
+  - name: Will Howe
+    github: H0W4RD-dev
+    credit: equal
+    roles: [mathematical_solution, formalization, exposition]
+  - name: Grant Huffman
+    github: Ghuffy1
+    credit: equal
+    roles: [mathematical_solution, formalization, exposition]
+  - name: Jensen Kohlmeyer
+    github: JENW1N
+    credit: equal
+    roles: [mathematical_solution, formalization, exposition]
+  - name: Liam Kruer
+    github: lkruer
+    credit: equal
+    roles: [mathematical_solution, formalization, exposition]
+ai_assistance:
+  provider: OpenAI
+  systems: [ChatGPT, Codex]
+  roles: [mathematical_development, formalization, verification, exposition]
+mathematical_antecedents:
+  - author: "Chris Lambie-Hanson"
+    contribution: "Forest layers, increasing odd-girth tails, and the hereditarily countable host construction."
+    references:
+      - "https://doi.org/10.1016/j.aim.2020.107176"
+      - "https://speakerdeck.com/clambiehanson/finite-subgraphs-of-uncountable-graphs"
+  - authors: ["Péter Komjáth", "Saharon Shelah"]
+    contribution: "Earlier consistency result; Theorem 3 is attributed to Komjáth in the paper."
+    references:
+      - "https://doi.org/10.1002/jgt.20060"
+formalization:
+  main_theorem: Erdos736.erdos_736
+  constructive_theorem: Erdos736.full_solution
+  statement_check: StatementCheck.original_assertion_false
+  proof_file: Erdos736.lean
+  lean_toolchain: "leanprover/lean4:v4.34.0"
+  mathlib_commit: "5ed2965256430c3649e86755f9576b54eca72435"
+  axiom_dependencies: [propext, Classical.choice, Quot.sound]

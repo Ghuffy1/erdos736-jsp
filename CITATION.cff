@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying mathematical paper when using this work."
+type: software
+title: "Erdős 736: a ZFC counterexample to Taylor's conjecture"
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: Howe
+    given-names: Will
+  - family-names: Huffman
+    given-names: Grant
+  - family-names: Kohlmeyer
+    given-names: Jensen
+  - family-names: Kruer
+    given-names: Liam
+preferred-citation:
+  type: unpublished
+  title: "A ZFC counterexample to Taylor's conjecture on finite subgraphs"
+  year: 2026
+  authors:
+    - family-names: Howe
+      given-names: Will
+    - family-names: Huffman
+      given-names: Grant
+    - family-names: Kohlmeyer
+      given-names: Jensen
+    - family-names: Kruer
+      given-names: Liam

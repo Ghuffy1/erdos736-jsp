@@ -1,0 +1,14 @@
+.lake/
+.verification/
+*.olean
+*.ilean
+*.c
+*.o
+*.a
+*.exe
+*.log
+*.aux
+*.out
+*.synctex.gz
+.DS_Store
+Thumbs.db
