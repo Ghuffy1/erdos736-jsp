@@ -1,0 +1,30 @@
+{
+  "checked_at_utc": "2026-11-11T05:22:28.172812+00:00",
+  "checked_commit": "9a07b93bc7466a489650c3951e0642689c5d8bc5",
+  "source_checkout": "fresh local Git clone at the exact proof commit",
+  "clean_worktree": true,
+  "source_sha256": {
+    "Erdos736.lean": "e942a8556ef95ffcef5f318e7a2e19fc4386288c5fdcc7d17d6a20871996dbe5",
+    "StatementCheck.lean": "7b96ca4bf57e9e8f011ab46674fc15f2c6c794e96091ce74eb4463ce34460eb5",
+    "Audit.lean": "3a12b6ff05350a91245af2b7f271a54aed0ce818eaa3045fe07abe6b65579258",
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "48de84912c53104e3f9b080c026e1fa15c08c5d347f53b8391ec7cf2bb7d205e",
+    "lake-manifest.json": "01fc031bb9c9dc498790920b162535436a364ff7629a5834e3ee5dff84498a96"
+  },
+  "dependency_mode": "reused pinned upstream checkouts and their cache; lake exe cache get completed successfully",
+  "commands": [
+    {
+      "command": "lake exe cache get",
+      "exit_code": 0
+    },
+    {
+      "command": "lake build",
+      "exit_code": 0
+    },
+    {
+      "command": "lake env lean Audit.lean",
+      "exit_code": 0
+    }
+  ],
+  "fresh_own_project_build": true
+}

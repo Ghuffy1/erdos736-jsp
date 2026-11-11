@@ -1,0 +1,8 @@
+{
+  "source_commit": "100bc988ce2ee25db63e8a1935ef2f1fee7f719f",
+  "source_sha256": "aba1fb1d96bf12fb100a65aab59b1593057601d59db1d69ae99d899631e44064",
+  "packaged_source_sha256": "e942a8556ef95ffcef5f318e7a2e19fc4386288c5fdcc7d17d6a20871996dbe5",
+  "changes": "copyright/authorship header, introductory comments, line-ending normalization, and trailing whitespace only",
+  "proof_bodies_preserved": true,
+  "paper_byte_identity": true
+}

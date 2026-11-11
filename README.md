@@ -13,6 +13,7 @@ The construction gives a graph of chromatic number `aleph_1` such that every gra
 - [Statement correspondence](STATEMENT.md).
 - [Reproduction instructions](BUILD.md).
 - [Authorship, AI assistance, and prior work](ATTRIBUTION.md).
+- [Verification of the selected proof commit](verification/README.md).
 
 The principal theorem is `Erdos736.erdos_736`. The stronger constructive statement is `Erdos736.full_solution`. The independently written original assertion is discharged by `StatementCheck.original_assertion_false`.
 

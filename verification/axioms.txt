@@ -1,0 +1,21 @@
+'Erdos736.erdos_736' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.full_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'StatementCheck.original_assertion_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.finiteAgeIncluded_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.chromaticCardinal_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.chromaticCardinal_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.ActualHost.not_natColoring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos736.even_length_of_shiftPattern' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos736.erdos_736.{u} :
+  ¬∀ (V : Type u) (G : SimpleGraph V),
+      Erdos736.chromaticCardinal G = Cardinal.aleph 1 →
+        ∀ (m : Cardinal.{u}),
+          ∃ W H,
+            Erdos736.chromaticCardinal H = m ∧
+              ∀ (U : Type u) [Fintype U] (F : SimpleGraph U), Erdos736.ContainsCopy H F → Erdos736.ContainsCopy G F
+Erdos736.full_solution.{u} :
+  ∃ V G,
+    Erdos736.chromaticCardinal G = Cardinal.aleph 1 ∧
+      ∀ (W : Type u) (H : SimpleGraph W),
+        Erdos736.FiniteAgeIncluded H G → Erdos736.chromaticCardinal H ≤ Cardinal.continuum
+StatementCheck.original_assertion_false.{u} : ¬StatementCheck.OriginalAssertion

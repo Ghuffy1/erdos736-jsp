@@ -1,0 +1,105 @@
+{
+  "commit": "9a07b93bc7466a489650c3951e0642689c5d8bc5",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 32,
+      "sha256": "3131783d82f971e1a661deab7c0888410a6cdf225968b5a0989816e70a1878c6"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "bytes": 764,
+      "sha256": "9c2791e773460480c8f00969a6c98b3eb6fbdf5492cd42029ec39e43d46fed91"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 107,
+      "sha256": "dd4abda62f7cb728001940aeb1900999b4fd19a235bfd95b9882023b56762629"
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "bytes": 4347,
+      "sha256": "b8d7dd436fc2114040c98338bd8c532ca55cf49fa45e0070d17d1e5c2283a032"
+    },
+    {
+      "path": "Audit.lean",
+      "bytes": 506,
+      "sha256": "3a12b6ff05350a91245af2b7f271a54aed0ce818eaa3045fe07abe6b65579258"
+    },
+    {
+      "path": "BUILD.md",
+      "bytes": 2949,
+      "sha256": "e2095530c63aa01af3b7099da88ab9b6c6aae59ddec66c0f2ece03da65ca9351"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 756,
+      "sha256": "630b738ebff5ce4887026b5bbc38d884b919097988d25ca7bf4afb42b9f911f9"
+    },
+    {
+      "path": "Erdos736.lean",
+      "bytes": 78477,
+      "sha256": "e942a8556ef95ffcef5f318e7a2e19fc4386288c5fdcc7d17d6a20871996dbe5"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1312,
+      "sha256": "550e3443664e490bc7d10a01f7e2565fc852e8852b0118dabd26ae0e6addaf15"
+    },
+    {
+      "path": "LICENSE-PAPER",
+      "bytes": 506,
+      "sha256": "4b62ce2acfbbd48ffe6edeea6968b0f95295b07e053d43949e7f803adb17899e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2948,
+      "sha256": "13752001889ddfa1a9b51099cba47fd8b052eee4622339fac9835c3769f32840"
+    },
+    {
+      "path": "STATEMENT.md",
+      "bytes": 4246,
+      "sha256": "abfde9f75efbbf7de93a4aeda48b9179ffb9338774cfa37599bf0f0637a31222"
+    },
+    {
+      "path": "StatementCheck.lean",
+      "bytes": 797,
+      "sha256": "7b96ca4bf57e9e8f011ab46674fc15f2c6c794e96091ce74eb4463ce34460eb5"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3542,
+      "sha256": "01fc031bb9c9dc498790920b162535436a364ff7629a5834e3ee5dff84498a96"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 368,
+      "sha256": "48de84912c53104e3f9b080c026e1fa15c08c5d347f53b8391ec7cf2bb7d205e"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632"
+    },
+    {
+      "path": "paper/erdos736.pdf",
+      "bytes": 106880,
+      "sha256": "d6f1564d151609ce96d85fc9c97bf220ee59bc7bd192711a4df56e548d50a90f"
+    },
+    {
+      "path": "paper/erdos736.tex",
+      "bytes": 22551,
+      "sha256": "093a8830ad0639f0167f1adf3b168ad4fc76e805632f0ae00cde8a429f1f1b95"
+    },
+    {
+      "path": "scripts/verify.py",
+      "bytes": 4883,
+      "sha256": "093add5266b2c2e20b19a76ea094e68a88d0731229ce1e53146dafb5d825eb5f"
+    },
+    {
+      "path": "sources.yaml",
+      "bytes": 1819,
+      "sha256": "cca14e15f0bb850941bbe840e14b83597788fd13df19f4506bf590c7065c3483"
+    }
+  ]
+}

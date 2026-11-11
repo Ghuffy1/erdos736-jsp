@@ -1,0 +1,2 @@
+'StatementCheck.original_assertion_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+StatementCheck.original_assertion_false.{u} : ¬OriginalAssertion
